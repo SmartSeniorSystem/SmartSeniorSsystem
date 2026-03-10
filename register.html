@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UOB Project Hub - Register</title>
+    <style>
+        :root { --primary: #10b981; --bg: #f8fafc; --text: #1e293b; --card: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .auth-card { background: var(--card); padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 380px; text-align: center; }
+        h2 { font-weight: 800; margin-bottom: 10px; color: #0f172a; }
+        p { color: #64748b; margin-bottom: 30px; font-size: 14px; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 5px; color: #475569; text-transform: uppercase; }
+        input { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; box-sizing: border-box; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); }
+        button { width: 100%; padding: 14px; background-color: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        button:hover { background-color: #059669; transform: translateY(-1px); }
+        .error { background: #fee2e2; color: #dc2626; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; font-weight: bold; display: none; }
+        .success { background: #dcfce7; color: #166534; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; font-weight: bold; display: none; }
+        .switch { margin-top: 25px; font-size: 14px; color: #64748b; }
+        .switch a { color: var(--primary); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p>Join the academic project community</p>
+
+        <div class="error" id="error-message"></div>
+        <div class="success" id="success-message"></div>
+
+        <form id="register-form">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="user@stu.uob.bh" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" placeholder="••••••••" required>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+
+        <div class="switch">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[name="name"]').value;
+            const email = this.querySelector('input[name="email"]').value;
+            const password = this.querySelector('input[name="password"]').value;
+            const confirmPassword = this.querySelector('input[name="confirm_password"]').value;
+            const errorDiv = document.getElementById('error-message');
+            const successDiv = document.getElementById('success-message');
+
+            // Basic validation
+            if (!name || !email || !password || !confirmPassword) {
+                errorDiv.textContent = 'Please fill in all fields';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorDiv.textContent = 'Please enter a valid email address';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Password match validation
+            if (password !== confirmPassword) {
+                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Password strength validation
+            if (password.length < 8) {
+                errorDiv.textContent = 'Password must be at least 8 characters long';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // UOB email validation
+            if (!email.endsWith('@stu.uob.bh') && !email.endsWith('@uob.edu.bh')) {
+                errorDiv.textContent = 'Please use a valid UOB email address (@stu.uob.bh or @uob.edu.bh)';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Simulate successful registration
+            successDiv.textContent = 'Account created successfully! Redirecting to login...';
+            successDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+
+            // Simulate redirect
+            setTimeout(() => {
+                alert('This is a demo. In the full version, you would be redirected to the login page.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
