@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOB Project Hub - Home</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: var(--card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: #0f172a;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: var(--bg);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .feature-card p {
+            color: #64748b;
+        }
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer p {
+            color: #94a3b8;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"> Smart Senior Projects </div>
+                <div class="nav-links">
+                  
+                    <a href="login.php">Login</a>
+                    <a href="register.php">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to UOB Project Hub</h1>
+            <p>Your comprehensive platform for managing academic projects, proposals, and collaboration between students and professors.</p>
+            <div class="cta-buttons">
+                <a href="login.php" class="btn btn-primary">Login</a>
+                <a href="register.php" class="btn btn-secondary">Register</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Project Management</h3>
+                    <p>Submit and manage your academic projects efficiently with our intuitive interface.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Proposal System</h3>
+                    <p>Create and submit project proposals with detailed documentation and requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Review & Feedback</h3>
+                    <p>Receive comprehensive feedback from professors and track your project progress.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Announcements</h3>
+                    <p>Stay updated with the latest announcements and important project deadlines.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Role-Based Access</h3>
+                    <p>Customized dashboards for students and professors with relevant features.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Real-time Updates</h3>
+                    <p>Get instant notifications and updates on your project status and reviews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 UOB Project Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
